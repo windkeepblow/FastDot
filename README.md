@@ -25,8 +25,7 @@ Run `test_utils.py` will make you more clear.
 Speed Test
 ----------------------
 * Jobs: dot product between `A(2000,3000)` and `B(3000,2000)`
-* Env.: ubuntu 14, x64, Intel(R) Core(TM) i7 CPU@2.93GHz
-
+* Env: ubuntu 14, x64, Intel(R) Core(TM) i7 CPU, 2.93GHz
 <table class="table table-bordered table-striped table-condensed">
 <tr>
 	<th>method</th>
@@ -53,8 +52,7 @@ Speed Test
 	<td>8</td>
 	<td>2.06s</td>
 </tr>
-
-If your pc has only one CPU, `np.dot` is enough. It's fast and easy to use. 
+* If your pc has only one CPU, `np.dot` is enough. It's fast and easy to use. 
 
 Quick Start
 ----------------------
