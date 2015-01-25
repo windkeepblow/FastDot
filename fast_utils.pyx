@@ -13,9 +13,9 @@ cdef sdot_ptr sdot=<sdot_ptr>PyCObject_AsVoidPtr(fblas.sdot._cpointer)  # float 
 cdef dsdot_ptr dsdot=<dsdot_ptr>PyCObject_AsVoidPtr(fblas.sdot._cpointer)  # double = dot(x, y)
 
 """
-R = A * B (warning: A, B should't have been np.transposed!)
+R = A * B (warning: A, B should't have been numpy.array.transposed!)
 @R: result matrix
-@n_jobs: num of threads to be used
+@n_jobs: num of CPUs to be used
 """
 def fast_dot(A, B, R, n_jobs):
     '''prepare data'''
@@ -36,9 +36,9 @@ def fast_dot(A, B, R, n_jobs):
                 result[i*B_col+j] += mat_1[i*A_col+k] * mat_2[k*B_col+j] 
 
 """
-R = A * B_T (warning: A, B should't have been np.transposed!)
+R = A * B^T (warning: A, B should't have been numpy.array.transposed!)
 @R: result matrix
-@n_jobs: num of threads to be used
+@n_jobs: num of CPUs to be used
 """
 cdef int ONE = 1
 def fast_dot_blas(A, B, R, n_jobs):
