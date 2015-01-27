@@ -16,13 +16,13 @@ def main():
     A = np.array([[1.2,2.3,3.4,5.5],[31,4,3,5],[2,3,67,45]], dtype=REAL)
     B = np.array([[5.9,6,3],[7,8,3],[1,2,3],[11,34,55.5]], dtype=REAL)
     C = np.array([[5.9,7,1,11],[6,8,2,34],[3,3,3,55.5]], dtype=REAL)
-     
+    ''' 
     st = time.time()
     result_1 = np.empty((A.shape[0], B.shape[1]), dtype=REAL)
     fast_dot(A, B, result_1, 1)
     ed = time.time()
     print "fast_dot time:%fs"%(ed-st)
-    '''
+    
     st = time.time()
     result_2 = np.dot(A,B)
     ed = time.time()

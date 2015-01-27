@@ -1,16 +1,18 @@
 FastUtils
 =============================
-A fast tool for dot product based on cython. It's multi-threading and faster than numpy dot.
+A naive version of dot product based on cython. It's multi-threading.
 
 Why FastUtils
 ---------------------
 Python is a good programming language but is too slow. 
-**GIL**(Global Interpreter Lock) bothers us too much when we want to use more cpus in our codes.
-Numpy is a power lib for us to do some scientific calculations. It's fast, but not enough.
-We still can't use multi-cores with `numpy.dot`. 
+**GIL**(Global Interpreter Lock) bothers us too much when we want to use more CPUs in our codes.
 So I write a tool with cython(a optimising static compiler which can be used to write C extensions for python).
 It's easy to make the job run parallelly with `cython.parallel`.
 **BLAS**(Basic Linear Algebra Subprograms) is also used in the code too.
+
+It's no doubt that python has already had a powerful lib *numpy* and *scipy* to do scientific caculations.
+`numpy.dot` is also support multi-threading if you compiled it with optimized BLAS library like *ATLAS* or *OpenBLAS*.
+The code is only written because I want to practise how to write C extensions for python.
 
 About the Code
 ---------------------
@@ -52,7 +54,8 @@ Speed Test
 	<td>8</td>
 	<td>2.06s</td>
 </tr>
-* If your pc has only one CPU, `np.dot` is enough. It's fast and easy to use. 
+* Here the `np.dot` is compiled with the normal blas version(not optimized), so the speed is not very fast. `fast_dot` is pure C and its 
+speed is too slow compared to the other two methods.
 
 Quick Start
 ----------------------
